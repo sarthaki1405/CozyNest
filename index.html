@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+25&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
+    <title>CozyNest</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="box" id="background-container">
+        <div id="mood-selector">
+            <button class="mood-button" data-mood="sunny">Dusk</button>
+            <button class="mood-button" data-mood="rainy">Drizzle</button>
+            <button class="mood-button" data-mood="winter">Rewind</button>
+            <button class="mood-button" data-mood="chill">Brew</button>
+            <button class="mood-button" data-mood="bonfire">Focus</button>
+            <button class="mood-button" data-mood="citylife">Breeze</button>
+            <button class="mood-button" data-mood="night">Voyage</button>
+            <button class="mood-button" data-mood="extra1">Ember</button>
+            <button class="mood-button" data-mood="extra2">Drive</button>
+            <button class="mood-button" data-mood="extra3">Write</button>
+        </div>
+
+
+        <div id="hourglass">
+            <i title="Pomodoro Timer" class="fa-solid fa-hourglass-end"></i>
+        </div>
+        
+        <div id="pomodoro-timer">
+            <span id="timer-display">25:00</span>
+            <button id="start-btn"><i class="fa-solid fa-play"></i></button>
+            <button id="pause-btn"><i class="fa-solid fa-pause"></i></button>
+            <button id="stop-btn"><i class="fa-solid fa-stop"></i></button>
+            <button id="restart-btn"><i class="fa-solid fa-redo"></i></button>
+        </div>
+        <audio id="alarm-sound" src="sounds/alarm.mp3" preload="auto"></audio>
+
+
+        <div id="fullscreen-toggle">
+            <button id="fullscreen-btn"><i class="fa-solid fa-expand"></i></button>
+        </div>
+
+       
+        <div id="sound-panel">
+            <div class="sound-grid-container">
+                <div class="sound-grid">
+                    <div class="sound-control" data-sound="road-noise">
+                        <button class="sound-button" title="Road Noise"><i class="fa-light fa-road"></i></button>
+                        <input type="range" class="volume-control" min="0" max="1" step="0.01" value="0.5" style="display: none;">
+                    </div>
+                    <div class="sound-control" data-sound="birdsong">
+                        <button class="sound-button" title="Birdsong"><i class="fas fa-dove"></i></button>
+                        <input type="range" class="volume-control" min="0" max="1" step="0.01" value="0.5" style="display: none;">
+                    </div>
+                    <div class="sound-control" data-sound="rainfall">
+                        <button class="sound-button" title="Rainfall"><i class="fas fa-cloud-rain"></i></button>
+                        <input type="range" class="volume-control" min="0" max="1" step="0.01" value="0.5" style="display: none;">
+                    </div>
+                    <div class="sound-control" data-sound="thunderstorm">
+                        <button class="sound-button" title="Thunderstorm"><i class="fas fa-bolt"></i></button>
+                        <input type="range" class="volume-control" min="0" max="1" step="0.01" value="0.5" style="display: none;">
+                    </div>
+                    <div class="sound-control" data-sound="wind-gusts">
+                        <button class="sound-button" title="Wind Gusts"><i class="fas fa-wind"></i></button>
+                        <input type="range" class="volume-control" min="0" max="1" step="0.01" value="0.5" style="display: none;">
+                    </div>
+                    <div class="sound-control" data-sound="tape-whir">
+                        <button class="sound-button" title="Tape Whir"><i class="fa-light fa-tape"></i></button>
+                        <input type="range" class="volume-control" min="0" max="1" step="0.01" value="0.5" style="display: none;">
+                    </div>
+                    <div class="sound-control" data-sound="white-noise">
+                        <button class="sound-button" title="White Noise"><i class="fas fa-tv"></i></button>
+                        <input type="range" class="volume-control" min="0" max="1" step="0.01" value="0.5" style="display: none;">
+                    </div>
+                    <div class="sound-control" data-sound="pencil-scribbling">
+                        <button class="sound-button" title="Pencil Scribbling"><i class="fas fa-pencil-alt"></i></button>
+                        <input type="range" class="volume-control" min="0" max="1" step="0.01" value="0.5" style="display: none;">
+                    </div>
+                    <div class="sound-control" data-sound="clock-ticking">
+                        <button class="sound-button" title="Clock Ticking"><i class="fa-regular fa-clock"></i></button>
+                        <input type="range" class="volume-control" min="0" max="1" step="0.01" value="0.5" style="display: none;">
+                    </div>
+                    <div class="sound-control" data-sound="chatter">
+                        <button class="sound-button" title="Chatter"><i class="fa-solid fa-people-pulling"></i></button>
+                        <input type="range" class="volume-control" min="0" max="1" step="0.01" value="0.5" style="display: none;">
+                    </div>
+                    <div class="sound-control" data-sound="footsteps">
+                        <button class="sound-button" title="Footsteps"><i class="fa-solid fa-person-walking"></i></button>
+                        <input type="range" class="volume-control" min="0" max="1" step="0.01" value="0.5" style="display: none;">
+                    </div>
+                    <div class="sound-control" data-sound="ocean-waves">
+                        <button class="sound-button" title="Ocean Waves"><i class="fa-solid fa-water"></i></button>
+                        <input type="range" class="volume-control" min="0" max="1" step="0.01" value="0.5" style="display: none;">
+                    </div>
+                    <div class="sound-control" data-sound="seagulls">
+                        <button class="sound-button" title="Seagulls"><i class="fa-solid fa-crow"></i></button>
+                        <input type="range" class="volume-control" min="0" max="1" step="0.01" value="0.5" style="display: none;">
+                    </div>
+                    <div class="sound-control" data-sound="fireplace">
+                        <button class="sound-button" title="Fireplace"><i class="fa-solid fa-fire"></i></button>
+                        <input type="range" class="volume-control" min="0" max="1" step="0.01" value="0.5" style="display: none;">
+                    </div>
+                    <div class="sound-control" data-sound="cricket-chirping">
+                        <button class="sound-button" title="Cricket Chirping"><i class="fa-solid fa-bug"></i></button>
+                        <input type="range" class="volume-control" min="0" max="1" step="0.01" value="0.5" style="display: none;">
+                    </div>
+                    <div class="sound-control" data-sound="engine-hum">
+                        <button class="sound-button" title="Engine Hum"><i class="fa-solid fa-car"></i></button>
+                        <input type="range" class="volume-control" min="0" max="1" step="0.01" value="0.5" style="display: none;">
+                    </div>
+                    <div class="sound-control" data-sound="keyboard-typing">
+                        <button class="sound-button" title="Keyboard Typing"><i class="fa-regular fa-keyboard"></i></button>
+                        <input type="range" class="volume-control" min="0" max="1" step="0.01" value="0.5" style="display: none;">
+                    </div>
+                    <div class="sound-control" data-sound="music">
+                        <button class="sound-button" title="Music"><i class="fa-solid fa-music"></i></button>
+                        <input type="range" class="volume-control" min="0" max="1" step="0.01" value="0.5" style="display: none;">
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+    
+
+    <script src="app.js"></script>
+</body>
+</html>
